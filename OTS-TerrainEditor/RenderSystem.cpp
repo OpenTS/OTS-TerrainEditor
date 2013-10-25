@@ -78,6 +78,7 @@ namespace OTS
 		this->_screenWidth = atoi(this->_pConfig->GetSetting("Video", "width").c_str());
 		// != NULL added to prevent warning C4800
 		this->_isWindowed = atoi(this->_pConfig->GetSetting("Video", "windowed").c_str()) != NULL;
+		this->_monitor = atoi(this->_pConfig->GetSetting("Video", "monitor").c_str());
 	}
 
 	void RenderSystem::StartRender()
@@ -93,7 +94,10 @@ namespace OTS
 
 	GLFWmonitor* RenderSystem::_getMonitor()
 	{
-		return NULL;
+		int count;
+		GLFWmonitor** monitors = glfwGetMonitors(&count);
+		
+		return monitors[this->_monitor];
 	}
 
 	void RenderSystem::_handleGlfwError(int error, const char* description)

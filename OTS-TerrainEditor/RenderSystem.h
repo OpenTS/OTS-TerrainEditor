@@ -33,6 +33,7 @@ namespace OTS
 		uint32 _screenHeight;
 		bool _isWindowed;
 		ColorValue _colorValue;
+		int _monitor;
 
 		GLFWwindow* _window;
 		bool _shouldClose;
