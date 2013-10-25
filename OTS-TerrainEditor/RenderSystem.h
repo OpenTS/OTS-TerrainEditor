@@ -19,6 +19,7 @@ namespace OTS
 		void CreateRenderWindow(OTS::STRING* windowName);
 		void SetViewport(uint32 x, uint32 y);
 		void SetBackgroundColor(ColorValue color);
+		void StartRender();
 
 		uint32 ScreenWidth() const { return _screenWidth; }
 		void ScreenWidth(uint32 val) { _screenWidth = val; }
@@ -34,13 +35,16 @@ namespace OTS
 		ColorValue _colorValue;
 
 		GLFWwindow* _window;
+		bool _shouldClose;
 
 		void _loadConfig();
 		GLFWmonitor* _getMonitor();
 		void _handleGlfwError(int error, const char* description);
+		void _handleGlfwWindowClose(GLFWwindow* window);
 
 		// Static callbacks for C style callbacks
 		static void glfwErrorCallback(int error, const char* description);
+		static void glfwWindowCloseCallback(GLFWwindow* window);
 	};
 }
 

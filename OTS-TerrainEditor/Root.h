@@ -17,6 +17,7 @@ namespace OTS
 		static Root& getSingleton( void );
 		static Root*  getSingletonPointer( void );
 		void Initialize(OTS::STRING* windowName);
+		void Start();
 	
 		RenderSystem* GetRenderSystem() const { return _pRender; }
 

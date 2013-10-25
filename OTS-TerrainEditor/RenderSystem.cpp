@@ -22,6 +22,7 @@ namespace OTS
 		this->_loadConfig();
 		glfwSetErrorCallback(glfwErrorCallback);
 		this->_pLogger->LogMessage("[RenderSystem] - Constructed.");
+		this->_shouldClose = false;
 	}
 
 
@@ -37,6 +38,8 @@ namespace OTS
 			this->_pLogger->LogMessage("[RenderSystem] - Failed initialize GLFW.");
 			return false;
 		}
+
+		
 		return true;
 	}
 
@@ -55,10 +58,13 @@ namespace OTS
 		if(this->_window == NULL)
 		{
 			this->_pLogger->LogMessage("[RenderSystem] - Error opening window.");
+			throw 10;
 		}
 
 		// Make opengl Context current
 		glfwMakeContextCurrent(this->_window);
+
+		glfwSetWindowCloseCallback(this->_window, glfwWindowCloseCallback);
 	}
 
 	void RenderSystem::SetViewport(uint32 x, uint32 y)
@@ -74,6 +80,17 @@ namespace OTS
 		this->_isWindowed = atoi(this->_pConfig->GetSetting("Video", "windowed").c_str()) != NULL;
 	}
 
+	void RenderSystem::StartRender()
+	{
+		while(!this->_shouldClose)
+		{
+
+			glClear(GL_COLOR_BUFFER_BIT);
+			glfwSwapBuffers(this->_window);
+			glfwPollEvents();
+		}
+	}
+
 	GLFWmonitor* RenderSystem::_getMonitor()
 	{
 		return NULL;
@@ -86,16 +103,29 @@ namespace OTS
 		this->_pLogger->LogMessage(buffer);
 	}
 
+	void RenderSystem::_handleGlfwWindowClose(GLFWwindow* window)
+	{
+		this->_shouldClose = true;
+	}
+
 	void RenderSystem::SetBackgroundColor( ColorValue color )
 	{
 		this->_colorValue = color;
 		glClearColor(color.r, color.g, color.b, color.a);
 	}
 
+	/***********************************************************************
+	 * Static callback for using as CALLBACK functions
+	 ***********************************************************************/
 	void RenderSystem::glfwErrorCallback(int error, const char* description)
 	{
 		OTS::RenderSystem* rs = RenderSystem::getSingletonPointer();
 		rs->_handleGlfwError(error, description);
 	}
 
+	void RenderSystem::glfwWindowCloseCallback(GLFWwindow* window)
+	{
+		OTS::RenderSystem* rs = RenderSystem::getSingletonPointer();
+		rs->_handleGlfwWindowClose(window);
+	}
 }

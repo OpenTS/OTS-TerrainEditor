@@ -35,6 +35,11 @@ namespace OTS {
 		this->_pRender->CreateRenderWindow(windowName);
 	}
 
+	void Root::Start()
+	{
+		this->_pRender->StartRender();
+	}
+
 	Root::~Root()
 	{
 		delete this->_pRender;
