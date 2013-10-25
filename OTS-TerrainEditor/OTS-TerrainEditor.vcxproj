@@ -87,9 +87,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="BaseApplication.cpp" />
     <ClCompile Include="ColorValue.cpp" />
     <ClCompile Include="ConfigManager.cpp" />
