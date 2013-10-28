@@ -20,6 +20,7 @@ namespace OTS
 		void SetViewport(uint32 x, uint32 y);
 		void SetBackgroundColor(ColorValue color);
 		void RenderFrame();
+		bool IsWindowClosed();
 
 		uint32 ScreenWidth() const { return _screenWidth; }
 		void ScreenWidth(uint32 val) { _screenWidth = val; }

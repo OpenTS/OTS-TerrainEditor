@@ -118,6 +118,13 @@ namespace OTS
 		glClearColor(color.r, color.g, color.b, color.a);
 	}
 
+
+	bool RenderSystem::IsWindowClosed()
+	{
+		return this->_shouldClose;
+	}
+
+
 	/***********************************************************************
 	 * Static callback for using as CALLBACK functions
 	 ***********************************************************************/
