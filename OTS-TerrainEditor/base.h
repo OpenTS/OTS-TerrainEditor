@@ -7,6 +7,7 @@ typedef int int32;
 typedef short int16;
 typedef char int8;
 typedef float FLOAT;
+typedef double DOUBLE;
 
 // Custom definition for a string
 namespace OTS
