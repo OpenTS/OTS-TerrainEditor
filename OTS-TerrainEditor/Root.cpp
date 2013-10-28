@@ -39,7 +39,7 @@ namespace OTS {
 	{
 		this->_keepRendering = true;
 		
-		while(this->_keepRendering)
+		while(this->_keepRendering && !this->_pRender->IsWindowClosed())
 		{
 			this->_pRender->RenderFrame();	
 		}
