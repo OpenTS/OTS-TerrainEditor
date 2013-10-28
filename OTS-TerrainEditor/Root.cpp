@@ -17,7 +17,8 @@ namespace OTS {
 	Root::Root(OTS::STRING& configFile = OTS::STRING("main.cfg")) :
 		_pConfig(0),
 		_pLogging(0),
-		_pRender(0)
+		_pRender(0),
+		_pFrameListener(0)
 	{
 		this->_pLogging = new LoggingManager();
 
@@ -42,7 +43,19 @@ namespace OTS {
 		while(this->_keepRendering && !this->_pRender->IsWindowClosed())
 		{
 			this->_pRender->RenderFrame();	
+
+			// Fire frame event;
+			if(!this->_fireFrameQueued())
+			{
+				break;
+			}
 		}
+	}
+
+
+	void Root::SetFrameListener( FrameListener* listener )
+	{
+		this->_pFrameListener = listener;
 	}
 
 	Root::~Root()
@@ -51,4 +64,15 @@ namespace OTS {
 		delete this->_pConfig;
 		delete this->_pLogging;
 	}
+
+	bool Root::_fireFrameQueued()
+	{
+		if(this->_pFrameListener != NULL)
+		{
+			return this->_pFrameListener->FrameQueued(FrameEvent());
+		}
+
+		return true;
+	}
+
 }
