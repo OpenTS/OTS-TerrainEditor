@@ -101,6 +101,7 @@
     <ClInclude Include="BaseApplication.h" />
     <ClInclude Include="ColorValue.h" />
     <ClInclude Include="ConfigManager.h" />
+    <ClInclude Include="FrameListener.h" />
     <ClInclude Include="LoggingManager.h" />
     <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="ResourceManager.h" />

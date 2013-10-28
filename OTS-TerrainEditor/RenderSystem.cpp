@@ -85,8 +85,10 @@ namespace OTS
 	{
 		while(!this->_shouldClose)
 		{
-
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			// Rendering should come here
+
 			glfwSwapBuffers(this->_window);
 			glfwPollEvents();
 		}

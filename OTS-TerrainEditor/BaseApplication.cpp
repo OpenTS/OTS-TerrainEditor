@@ -18,7 +18,7 @@ namespace OTS
 		this->_pRoot->Initialize(&OTS::STRING("Test"));
 		
 		this->_pRoot->GetRenderSystem()->SetViewport(0,0);
-		this->_pRoot->GetRenderSystem()->SetBackgroundColor(ColorValue::BLACK);
+		this->_pRoot->GetRenderSystem()->SetBackgroundColor(ColorValue(0.5,0.8,0.1,1.0));
 		this->_pRoot->Start();
 	}
 }
