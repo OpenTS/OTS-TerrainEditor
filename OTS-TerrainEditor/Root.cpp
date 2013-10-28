@@ -37,7 +37,7 @@ namespace OTS {
 
 	void Root::Start()
 	{
-		this->_pRender->StartRender();
+		this->_pRender->RenderFrame();
 	}
 
 	Root::~Root()

@@ -81,7 +81,7 @@ namespace OTS
 		this->_monitor = atoi(this->_pConfig->GetSetting("Video", "monitor").c_str());
 	}
 
-	void RenderSystem::StartRender()
+	void RenderSystem::RenderFrame()
 	{
 		while(!this->_shouldClose)
 		{
