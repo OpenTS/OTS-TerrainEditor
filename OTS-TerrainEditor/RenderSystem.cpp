@@ -64,6 +64,7 @@ namespace OTS
 		// Make opengl Context current
 		glfwMakeContextCurrent(this->_window);
 
+		// Set window callbacks
 		glfwSetWindowCloseCallback(this->_window, glfwWindowCloseCallback);
 	}
 
@@ -83,15 +84,12 @@ namespace OTS
 
 	void RenderSystem::RenderFrame()
 	{
-		while(!this->_shouldClose)
-		{
-			glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT);
 
-			// Rendering should come here
+		// Rendering should come here
 
-			glfwSwapBuffers(this->_window);
-			glfwPollEvents();
-		}
+		glfwSwapBuffers(this->_window);
+		glfwPollEvents();
 	}
 
 	GLFWmonitor* RenderSystem::_getMonitor()

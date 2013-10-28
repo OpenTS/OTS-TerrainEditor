@@ -26,7 +26,7 @@ namespace OTS
 		LoggingManager* _pLogging;
 		RenderSystem* _pRender;
 		
-
+		bool _keepRendering;
 	};	
 }
 
