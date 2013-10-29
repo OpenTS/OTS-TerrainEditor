@@ -10,7 +10,6 @@ namespace OTS
 	class FrameListener
 	{
 	public:
-		virtual ~FrameListener(void);
 		virtual bool FrameStarted(FrameEvent Event) = 0;
 		virtual bool FrameQueued(FrameEvent Event) = 0;
 	};
