@@ -92,6 +92,9 @@
     <ClCompile Include="ConfigManager.cpp" />
     <ClCompile Include="LoggingManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Material.cpp" />
+    <ClCompile Include="Renderable.cpp" />
+    <ClCompile Include="RenderQueue.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Root.cpp" />
@@ -103,6 +106,9 @@
     <ClInclude Include="ConfigManager.h" />
     <ClInclude Include="FrameListener.h" />
     <ClInclude Include="LoggingManager.h" />
+    <ClInclude Include="Material.h" />
+    <ClInclude Include="Renderable.h" />
+    <ClInclude Include="RenderQueue.h" />
     <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Root.h" />
