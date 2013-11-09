@@ -16,17 +16,21 @@ namespace OTS
 
 	ResourceManager::ResourceManager(void)
 	{
+		this->_pLogging = LoggingManager::getSingletonPointer();
 		this->_resourceLocations = new std::vector<ResourceLocation>();
 	}
 
 
 	ResourceManager::~ResourceManager(void)
 	{
-
+		delete(_resourceLocations);
 	}
 
-	void ResourceManager::AddResourceLocation( OTS::STRING* resourceLocation )
+	
+	void ResourceManager::AddResourceLocation( OTS::STRING resourceLocation )
 	{
+		this->_pLogging->LogMessage("[ResourceManager] - Adding Resource location: " + resourceLocation);
+		
 		ResourceLocation loc;
 		loc.location = resourceLocation;
 		loc.state = RESOURCE_UNINITIALISED;

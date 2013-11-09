@@ -17,5 +17,8 @@ namespace OTS
 
 	private:
 		OTS::Root* _pRoot;
+		OTS::ResourceManager* _pResource;
+
+		void addResources();
 	};
 }

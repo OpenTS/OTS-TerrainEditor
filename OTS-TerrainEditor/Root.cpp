@@ -18,7 +18,8 @@ namespace OTS {
 		_pConfig(0),
 		_pLogging(0),
 		_pRender(0),
-		_pFrameListener(0)
+		_pFrameListener(0),
+		_pResourceManager(0)
 	{
 		this->_pLogging = new LoggingManager();
 
@@ -26,6 +27,8 @@ namespace OTS {
 		this->_pLogging->LogMessage("[Root] - Starting up Config Manager.");
 		this->_pConfig = new ConfigManager();
 		this->_pConfig->LoadConfigFile(configFile);
+
+		this->_pResourceManager = new ResourceManager();
 
 		this->_pRender = new RenderSystem();
 		this->_pRender->Initialize();
@@ -61,6 +64,7 @@ namespace OTS {
 	Root::~Root()
 	{
 		delete this->_pRender;
+		delete this->_pResourceManager;
 		delete this->_pConfig;
 		delete this->_pLogging;
 	}
@@ -73,6 +77,16 @@ namespace OTS {
 		}
 
 		return true;
+	}
+
+	ConfigManager* Root::GetConfigManager()
+	{
+		return this->_pConfig;
+	}
+
+	ResourceManager* Root::GetResourceManager()
+	{
+		return this->_pResourceManager;
 	}
 
 }

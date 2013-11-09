@@ -1,6 +1,7 @@
 #pragma once
 #include "base.h"
 #include "Singleton.h"
+#include "LoggingManager.h"
 #include <vector>
 
 namespace OTS
@@ -14,7 +15,7 @@ namespace OTS
 
 	struct ResourceLocation
 	{
-		OTS::STRING* location;
+		OTS::STRING location;
 		ResourceState state;
 	};
 
@@ -29,10 +30,12 @@ namespace OTS
 		ResourceManager* getSingletonPointer();
 		ResourceManager& getSingleton();
 		
-		void AddResourceLocation(OTS::STRING* resourceLocation);
+		void AddResourceLocation(OTS::STRING resourceLocation);
 		void InitialiseResourceLocations();
 
 	private:
+		LoggingManager* _pLogging;
 		std::vector<ResourceLocation>* _resourceLocations;
+
 	};
 }
