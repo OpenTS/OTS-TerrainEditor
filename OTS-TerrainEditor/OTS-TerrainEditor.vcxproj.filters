@@ -104,6 +104,9 @@
     <ClInclude Include="Material.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="E:\Development\Libraries\Dirent\include\dirent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="config\main.cfg">

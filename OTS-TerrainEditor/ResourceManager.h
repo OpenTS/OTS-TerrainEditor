@@ -2,7 +2,11 @@
 #include "base.h"
 #include "Singleton.h"
 #include "LoggingManager.h"
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/mesh.h>
 #include <vector>
+#include <map>
 
 namespace OTS
 {
@@ -36,6 +40,10 @@ namespace OTS
 	private:
 		LoggingManager* _pLogging;
 		std::vector<ResourceLocation>* _resourceLocations;
+		OTS::STRING _workingDir;
+
+		std::map<OTS::STRING, aiMesh>* _meshList;
+
 
 	};
 }

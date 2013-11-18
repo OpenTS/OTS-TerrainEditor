@@ -41,8 +41,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>E:\Development\Libraries\glfw-3.0.3.bin.WIN32\include;E:\Development\Libraries\glew-1.10.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\Development\Libraries\glew-1.10.0\lib\Release MX\Win32;E:\Development\Libraries\glfw-3.0.3.bin.WIN32\lib-msvc110;$(LibraryPath)</LibraryPath>
+    <IncludePath>E:\Development\Libraries\Dirent\include;E:\Development\Libraries\assimp\assimp-3.0.1270\include;E:\Development\Libraries\glfw-3.0.3.bin.WIN32\include;E:\Development\Libraries\glew-1.10.0\include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\Development\Libraries\assimp\assimp-3.0.1270\lib\assimp_release_Win32;E:\Development\Libraries\glew-1.10.0\lib\Release MX\Win32;E:\Development\Libraries\glfw-3.0.3.bin.WIN32\lib-msvc110;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -55,6 +55,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Development\Libraries\assimp\assimp--3.0.1270-source-only\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -104,6 +105,7 @@
     <ClInclude Include="BaseApplication.h" />
     <ClInclude Include="ColorValue.h" />
     <ClInclude Include="ConfigManager.h" />
+    <ClInclude Include="E:\Development\Libraries\Dirent\include\dirent.h" />
     <ClInclude Include="FrameListener.h" />
     <ClInclude Include="LoggingManager.h" />
     <ClInclude Include="Material.h" />

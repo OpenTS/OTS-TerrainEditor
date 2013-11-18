@@ -21,6 +21,7 @@ namespace OTS
 		this->_pRoot->SetFrameListener(this);
 
 		this->addResources();
+		this->_pResource->InitialiseResourceLocations();
 
 		this->_pRoot->GetRenderSystem()->SetViewport(0,0);
 		this->_pRoot->GetRenderSystem()->SetBackgroundColor(ColorValue(0.2f,0.8f,0.1f,1.0f));
